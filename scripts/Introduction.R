@@ -1,0 +1,26 @@
+print('Hello,world')
+      
+library(tidyverse)
+(area_hectares<-1.0)
+1.0->area_hectares
+
+
+(area_hectares<--1.0)
+1.0->area_hectares
+2.47*area_hectares
+area_hectares<--2.5
+
+
+area_hectares<-2.5                #load area in hectares                      
+area_acres<-2.47*                 #2.47 is the conversion factor between hectares and acres
+area_hectares                     #convert to acres
+area_acres                        #print
+
+length <- 2.5
+width <- 3.2
+area <- length * width
+area
+
+#b<-sqrt(x=a)
+round(digits=2, x=3.14159)
+
