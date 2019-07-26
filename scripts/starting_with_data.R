@@ -88,6 +88,98 @@ as.character(year_fct)
 
 as.numeric(levels(year_fct))[year_fct]
 
+year_nmb<-as.numeric(levels(year_fct))[year_fct]
+table(year_nmb)
+table(year_fct)
+summary(year_fct)
+
+
+affect_conflicts <-interviews$affect_conflicts
+affect_conflicts<-as_factor(affect_conflicts)
+
+plot(affect_conflicts)
+
+affect_conflicts<-interviews$affect_conflicts
+affect_conflicts[is.na(affect_conflicts)]
+affect_conflicts
+
+levels(affect_conflicts)[2]<-'more than once'
+plot(affect_conflicts)
+
+levels(affect_conflicts)[2]<-'more than once'
+affect_conflicts<-factor(affect_conflicts,levels=c ('never','once','more than once','frequently,'undetermined'))
+
+
+#Exercise
+interviews %>%
+ filter(memb_assoc=='yes') %>%
+ select(affect_conflicts,liv_count,no_meals)
+
+
+interviews_ppl_room<-interviews %>%
+ filter(memb_assoc=='yes') %>%
+ mutate(people_per_room=no_membrs/rooms)
+ 
+ total_meals<-interviews %>%
+ mutate(total_meals=no_membrs*no_meals) %>%
+ filter(total_meals >20) %>%
+ select(village,total_meals)
+ 
+ interviews %>%
+  filter(!is.na(memb_assoc))%>%
+  group_by(village,memb_assoc) %>%
+  summarize(mean_no_membrs=mean(no_membrs)),
+                min_membrs=min(no_membrs)) %>%
+  arrange(desc(min_membrs))
+  
+  
+interviews %>%
+   count(no_meals)
+
+
+
+ interviews %>%
+  group_by(village) %>%
+  summarize(
+      village_mean = mean(no_membrs),
+      min= min(no_membrs),
+      max= max(no_membrs),
+      n = n()
+  )
+ 
+ 
+ summary(interviews)
+ 
+ interviews_spread<-interviews %>%
+ mutate(wall_type_logical=TRUE)%>%
+ spread(key=respondent_wall_type,value=wall_type_logical, fill=FALSE)
+ 
+ view(interviews_spread)
+ 
+ 
+ data/*.csv
+ data/*.xlsx
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
